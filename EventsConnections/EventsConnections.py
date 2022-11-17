@@ -23,6 +23,7 @@ n = len(first)
 s_d_i = sum((first_ranks[i] - second_ranks[i])**2 for i in range(n))
 connections_value = 1 - (6*s_d_i  /  (n*(n**2 - 1)))
 
+error = False
 if 1 >= abs(connections_value) > 0.7:
     connection = 'сильная'
 elif 0.7 >= abs(connections_value) > 0.5:
@@ -33,7 +34,9 @@ elif 0.3 >= abs(connections_value) >= 0:
     connection = 'незначительная'
 else:
     print('Произошла ошибка')
-    exit()
-
-print(f'Связь между категориями событий {connection}\nЧисловое значение примерно равно: {round(connections_value, 6)}')
-input()
+    input()
+    error = True
+    
+if not error:
+    print(f'Связь между категориями событий {connection}\nЧисловое значение примерно равно: {round(connections_value, 6)}')
+    input()
