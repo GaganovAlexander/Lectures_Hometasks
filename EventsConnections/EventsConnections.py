@@ -13,7 +13,8 @@ def ranking(sample: list[int]) -> list[int]:
     sorted_list = sorted(sample)
     for i in sample:
         rank = sorted_list.index(i) + 1
-        ranks.append(rank + ranks.count(rank))
+        sorted_list[sorted_list.index(i)] = None
+        ranks.append(rank)
     return ranks
 
 first_ranks = ranking(first)
